@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hairdresser Appointment</title>
+  <title>Cita con la Peluquería</title>
   <style>
     body {
       font-family: "Poppins", Arial, sans-serif;
-      background: linear-gradient(135deg, #f8cdda, #f1a7c5);
+      background: linear-gradient(135deg, #2ecc71, #27ae60);
       min-height: 100vh;
       display: flex;
       align-items: center;
@@ -22,19 +22,18 @@
       padding: 28px;
       border-radius: 18px;
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      text-align: center;
     }
 
     h1 {
-      text-align: center;
-      font-size: 1.6rem;
+      font-size: 1.7rem;
       margin-bottom: 6px;
-      color: #333;
+      color: #2c3e50;
     }
 
     p.subtitle {
-      text-align: center;
       font-size: 0.95rem;
-      color: #666;
+      color: #555;
       margin-bottom: 22px;
     }
 
@@ -44,6 +43,7 @@
       font-weight: 600;
       margin-bottom: 6px;
       color: #444;
+      text-align: left;
     }
 
     input,
@@ -62,8 +62,8 @@
     input:focus,
     select:focus,
     textarea:focus {
-      border-color: #e48ab5;
-      box-shadow: 0 0 0 3px rgba(228, 138, 181, 0.2);
+      border-color: #27ae60;
+      box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.25);
     }
 
     textarea {
@@ -92,7 +92,6 @@
     }
 
     .note {
-      text-align: center;
       font-size: 0.75rem;
       color: #777;
       margin-top: 14px;
@@ -101,43 +100,39 @@
 </head>
 <body>
   <div class="card">
-    <h1>Book Your Appointment</h1>
-    <p class="subtitle">Send your request directly via WhatsApp</p>
+    <h1>Reservar Cita</h1>
+    <p class="subtitle">Envía tu solicitud directamente por WhatsApp</p>
 
-    <label for="name">Full Name</label>
-    <input type="text" id="name" placeholder="Your name" />
+    <label for="name">Nombre completo</label>
+    <input type="text" id="name" placeholder="Tu nombre" />
 
-    <label for="phone">Phone Number</label>
-    <input type="tel" id="phone" placeholder="Your phone number" />
+    <label for="phone">Teléfono</label>
+    <input type="tel" id="phone" placeholder="Tu número de teléfono" />
 
-    <label for="service">Service</label>
+    <label for="service">Servicio</label>
     <select id="service">
-      <option value="Haircut">Haircut</option>
-      <option value="Coloring">Coloring</option>
-      <option value="Blow Dry">Blow Dry</option>
-      <option value="Styling">Styling</option>
-      <option value="Other">Other</option>
+      <option value="Corte de pelo">Corte de pelo</option>
+      <option value="Coloración">Coloración</option>
+      <option value="Secado">Secado</option>
+      <option value="Peinado">Peinado</option>
+      <option value="Otro">Otro</option>
     </select>
 
-    <label for="date">Preferred Date</label>
+    <label for="date">Fecha preferida</label>
     <input type="date" id="date" />
 
-    <label for="time">Preferred Time</label>
+    <label for="time">Hora preferida</label>
     <input type="time" id="time" />
 
-    <label for="message">Additional Notes</label>
-    <textarea id="message" placeholder="Anything we should know?"></textarea>
+    <label for="message">Notas adicionales</label>
+    <textarea id="message" placeholder="¿Algo que debamos saber?"></textarea>
 
-    <a
-      href="#"
-      class="btn"
-      onclick="sendWhatsApp(); return false;"
-    >
-      Book via WhatsApp
+    <a href="#" class="btn" onclick="sendWhatsApp(); return false;">
+      Reservar por WhatsApp
     </a>
 
     <div class="note">
-      You will be redirected to WhatsApp with your request pre-filled.
+      Serás redirigido a WhatsApp con el mensaje ya preparado.
     </div>
   </div>
 
@@ -150,15 +145,15 @@
       const time = document.getElementById('time').value;
       const message = document.getElementById('message').value;
 
-      const whatsappNumber = '1234567890'; // <-- replace with hairdresser WhatsApp number
+      const whatsappNumber = '1234567890'; // Reemplaza con el número de WhatsApp de la peluquería
 
-      const text = `💇‍♀️ *New Hairdresser Appointment Request*%0A%0A` +
-        `👤 Name: ${name}%0A` +
-        `📞 Phone: ${phone}%0A` +
-        `✂️ Service: ${service}%0A` +
-        `📅 Date: ${date}%0A` +
-        `⏰ Time: ${time}%0A%0A` +
-        `📝 Notes: ${message}`;
+      const text = `💇‍♂️ *Nueva solicitud de cita*%0A%0A` +
+        `👤 Nombre: ${name}%0A` +
+        `📞 Teléfono: ${phone}%0A` +
+        `✂️ Servicio: ${service}%0A` +
+        `📅 Fecha: ${date}%0A` +
+        `⏰ Hora: ${time}%0A%0A` +
+        `📝 Notas: ${message}`;
 
       const url = `https://wa.me/${whatsappNumber}?text=${text}`;
       window.open(url, '_blank');
