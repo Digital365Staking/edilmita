@@ -63,7 +63,7 @@
       font-size: 0.9rem;
       outline: none;
       transition: border-color 0.2s, box-shadow 0.2s;
-      width: 100%;
+      width: 94%;
     }
 
     input:focus, select:focus, textarea:focus {
@@ -134,7 +134,7 @@
       </div>
 
       <div>
-        <label for="service">Servicio</label>
+        <label for="service" style="width:100%">Servicio</label>
         <select id="service">
           <option value="Corte de pelo">Corte de pelo</option>
           <option value="Coloración">Coloración</option>
@@ -149,6 +149,7 @@
           <label for="date">Fecha preferida</label>
           <input type="date" id="date" />
         </div>
+        <br><br>
         <div>
           <label for="time">Hora preferida</label>
           <input type="time" id="time" />
@@ -179,7 +180,7 @@
       const time = document.getElementById('time').value;
       const message = document.getElementById('message').value;
 
-      const whatsappNumber = '1234567890'; // Reemplaza con el número de WhatsApp de la peluquería
+      const whatsappNumber = '34685338165'; // Reemplaza con el número de WhatsApp de la peluquería
 
       const text = `💇‍♂️ *Nueva solicitud de cita*%0A%0A` +
         `👤 Nombre: ${name}%0A` +
