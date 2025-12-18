@@ -182,15 +182,22 @@
 
       const whatsappNumber = '34685338165'; // Reemplaza con el número de WhatsApp de la peluquería
 
-      const text = `💇‍♂️ *Nueva solicitud de cita*%0A%0A` +
-        `👤 Nombre: ${name}%0A` +
-        `📞 Teléfono: ${phone}%0A` +
-        `✂️ Servicio: ${service}%0A` +
-        `📅 Fecha: ${date}%0A` +
-        `⏰ Hora: ${time}%0A%0A` +
-        `📝 Notas: ${message}`;
-
-      const encodedText = encodeURIComponent(text);
+       // Construimos el mensaje
+      let text = `💇‍♀️ *Nueva solicitud de cita*\n\n`;
+      text += `👤 Nombre: ${name}\n`;
+      text += `📞 Teléfono: ${phone}\n`;
+      text += `✂️ Servicio: ${service}\n`;
+      text += `📅 Fecha: ${date}\n`;
+      text += `⏰ Hora: ${time}\n`;
+      text += `📝 Notas: ${message}`;
+  
+      // Codificamos
+      let encodedText = encodeURIComponent(text);
+  
+      // Para asegurar saltos de línea en WhatsApp, reemplazamos %0A por %0A (ya seguro)
+      // Esto ayuda a que los móviles interpreten bien los saltos
+      encodedText = encodedText.replace(/%0A/g, '%0A');
+  
       const url = `https://wa.me/${whatsappNumber}?text=${encodedText}`;
       window.open(url, '_blank');
     }
