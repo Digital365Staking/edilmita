@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hairdresser Appointment</title>
+  <style>
+    body {
+      font-family: "Poppins", Arial, sans-serif;
+      background: linear-gradient(135deg, #f8cdda, #f1a7c5);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
+    }
+
+    .card {
+      background: #ffffff;
+      width: 100%;
+      max-width: 420px;
+      padding: 28px;
+      border-radius: 18px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 1.6rem;
+      margin-bottom: 6px;
+      color: #333;
+    }
+
+    p.subtitle {
+      text-align: center;
+      font-size: 0.95rem;
+      color: #666;
+      margin-bottom: 22px;
+    }
+
+    label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: #444;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 11px 12px;
+      border-radius: 10px;
+      border: 1px solid #ddd;
+      font-size: 0.9rem;
+      margin-bottom: 16px;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: #e48ab5;
+      box-shadow: 0 0 0 3px rgba(228, 138, 181, 0.2);
+    }
+
+    textarea {
+      resize: none;
+      min-height: 80px;
+    }
+
+    .btn {
+      display: block;
+      width: 100%;
+      text-align: center;
+      padding: 14px;
+      border-radius: 14px;
+      font-size: 1rem;
+      font-weight: 600;
+      background: linear-gradient(135deg, #25d366, #1ebe5d);
+      color: #ffffff;
+      text-decoration: none;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      box-shadow: 0 10px 20px rgba(37, 211, 102, 0.35);
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 26px rgba(37, 211, 102, 0.45);
+    }
+
+    .note {
+      text-align: center;
+      font-size: 0.75rem;
+      color: #777;
+      margin-top: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Book Your Appointment</h1>
+    <p class="subtitle">Send your request directly via WhatsApp</p>
+
+    <label for="name">Full Name</label>
+    <input type="text" id="name" placeholder="Your name" />
+
+    <label for="phone">Phone Number</label>
+    <input type="tel" id="phone" placeholder="Your phone number" />
+
+    <label for="service">Service</label>
+    <select id="service">
+      <option value="Haircut">Haircut</option>
+      <option value="Coloring">Coloring</option>
+      <option value="Blow Dry">Blow Dry</option>
+      <option value="Styling">Styling</option>
+      <option value="Other">Other</option>
+    </select>
+
+    <label for="date">Preferred Date</label>
+    <input type="date" id="date" />
+
+    <label for="time">Preferred Time</label>
+    <input type="time" id="time" />
+
+    <label for="message">Additional Notes</label>
+    <textarea id="message" placeholder="Anything we should know?"></textarea>
+
+    <a
+      href="#"
+      class="btn"
+      onclick="sendWhatsApp(); return false;"
+    >
+      Book via WhatsApp
+    </a>
+
+    <div class="note">
+      You will be redirected to WhatsApp with your request pre-filled.
+    </div>
+  </div>
+
+  <script>
+    function sendWhatsApp() {
+      const name = document.getElementById('name').value;
+      const phone = document.getElementById('phone').value;
+      const service = document.getElementById('service').value;
+      const date = document.getElementById('date').value;
+      const time = document.getElementById('time').value;
+      const message = document.getElementById('message').value;
+
+      const whatsappNumber = '1234567890'; // <-- replace with hairdresser WhatsApp number
+
+      const text = `💇‍♀️ *New Hairdresser Appointment Request*%0A%0A` +
+        `👤 Name: ${name}%0A` +
+        `📞 Phone: ${phone}%0A` +
+        `✂️ Service: ${service}%0A` +
+        `📅 Date: ${date}%0A` +
+        `⏰ Time: ${time}%0A%0A` +
+        `📝 Notes: ${message}`;
+
+      const url = `https://wa.me/${whatsappNumber}?text=${text}`;
+      window.open(url, '_blank');
+    }
+  </script>
+</body>
+</html>
