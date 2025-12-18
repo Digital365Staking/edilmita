@@ -191,15 +191,19 @@
       text += `⏰ Hora: ${time}\n`;
       text += `📝 Notas: ${message}`;
   
-      // Codificamos
-      let encodedText = encodeURIComponent(text);
-  
-      // Para asegurar saltos de línea en WhatsApp, reemplazamos %0A por %0A (ya seguro)
-      // Esto ayuda a que los móviles interpreten bien los saltos
-      encodedText = encodedText.replace(/%0A/g, '%0A');
-  
+      const text = `*CITA NUEVA*\n` +
+             `──────────────\n` +
+             `• Nombre: ${name}\n` +
+             `• Teléfono: ${phone}\n` +
+             `• Servicio: ${service}\n` +
+             `• Fecha: ${date}\n` +
+             `• Hora: ${time}\n` +
+             `──────────────\n` +
+             `• Notas: ${message}`;
+
+      const encodedText = encodeURIComponent(text);
       const url = `https://wa.me/${whatsappNumber}?text=${encodedText}`;
-      window.open(url, '_blank');
+      console.log(url);
     }
   </script>
 </body>
