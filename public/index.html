@@ -22,7 +22,6 @@
       padding: 28px;
       border-radius: 18px;
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-      text-align: center;
       display: flex;
       flex-direction: column;
       gap: 16px;
@@ -32,12 +31,21 @@
       font-size: 1.7rem;
       color: #2c3e50;
       margin-bottom: 6px;
+      text-align: center;
     }
 
     p.subtitle {
       font-size: 0.95rem;
       color: #555;
       margin-bottom: 22px;
+      text-align: center;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      text-align: left;
     }
 
     label {
@@ -45,7 +53,6 @@
       font-size: 0.85rem;
       font-weight: 600;
       color: #444;
-      text-align: left;
       margin-bottom: 4px;
     }
 
@@ -56,6 +63,7 @@
       font-size: 0.9rem;
       outline: none;
       transition: border-color 0.2s, box-shadow 0.2s;
+      width: 100%;
     }
 
     input:focus, select:focus, textarea:focus {
@@ -75,6 +83,12 @@
 
     .row input, .row select {
       flex: 1;
+    }
+
+    @media (max-width: 480px) {
+      .row {
+        flex-direction: column;
+      }
     }
 
     .btn {
@@ -99,12 +113,7 @@
       font-size: 0.75rem;
       color: #777;
       margin-top: 14px;
-    }
-
-    @media (max-width: 480px) {
-      .row {
-        flex-direction: column;
-      }
+      text-align: center;
     }
   </style>
 </head>
@@ -113,46 +122,48 @@
     <h1>Reservar Cita</h1>
     <p class="subtitle">Envía tu solicitud directamente por WhatsApp</p>
 
-    <div>
-      <label for="name">Nombre completo</label>
-      <input type="text" id="name" placeholder="Tu nombre" />
-    </div>
-
-    <div>
-      <label for="phone">Teléfono</label>
-      <input type="tel" id="phone" placeholder="Tu número de teléfono" />
-    </div>
-
-    <div>
-      <label for="service">Servicio</label>
-      <select id="service">
-        <option value="Corte de pelo">Corte de pelo</option>
-        <option value="Coloración">Coloración</option>
-        <option value="Secado">Secado</option>
-        <option value="Peinado">Peinado</option>
-        <option value="Otro">Otro</option>
-      </select>
-    </div>
-
-    <div class="row">
+    <form>
       <div>
-        <label for="date">Fecha preferida</label>
-        <input type="date" id="date" />
+        <label for="name">Nombre completo</label>
+        <input type="text" id="name" placeholder="Tu nombre" />
       </div>
+
       <div>
-        <label for="time">Hora preferida</label>
-        <input type="time" id="time" />
+        <label for="phone">Teléfono</label>
+        <input type="tel" id="phone" placeholder="Tu número de teléfono" />
       </div>
-    </div>
 
-    <div>
-      <label for="message">Notas adicionales</label>
-      <textarea id="message" placeholder="¿Algo que debamos saber?"></textarea>
-    </div>
+      <div>
+        <label for="service">Servicio</label>
+        <select id="service">
+          <option value="Corte de pelo">Corte de pelo</option>
+          <option value="Coloración">Coloración</option>
+          <option value="Secado">Secado</option>
+          <option value="Peinado">Peinado</option>
+          <option value="Otro">Otro</option>
+        </select>
+      </div>
 
-    <a href="#" class="btn" onclick="sendWhatsApp(); return false;">
-      Reservar por WhatsApp
-    </a>
+      <div class="row">
+        <div>
+          <label for="date">Fecha preferida</label>
+          <input type="date" id="date" />
+        </div>
+        <div>
+          <label for="time">Hora preferida</label>
+          <input type="time" id="time" />
+        </div>
+      </div>
+
+      <div>
+        <label for="message">Notas adicionales</label>
+        <textarea id="message" placeholder="¿Algo que debamos saber?"></textarea>
+      </div>
+
+      <a href="#" class="btn" onclick="sendWhatsApp(); return false;">
+        Reservar por WhatsApp
+      </a>
+    </form>
 
     <div class="note">
       Serás redirigido a WhatsApp con el mensaje ya preparado.
