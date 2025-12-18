@@ -177,6 +177,13 @@
       const phone = document.getElementById('phone').value;
       const service = document.getElementById('service').value;
       const date = document.getElementById('date').value;
+
+      let formattedDate = '';
+      if (dateInput) {
+        const parts = dateInput.split('-'); // ["yyyy", "MM", "dd"]
+        formattedDate = `${parts[2]}/${parts[1]}/${parts[0]}`; // dd/MM/yyyy
+      }
+      
       const time = document.getElementById('time').value;
       const message = document.getElementById('message').value;
 
@@ -187,7 +194,7 @@
              `• Nombre: ${name}\n` +
              `• Teléfono: ${phone}\n` +
              `• Servicio: ${service}\n` +
-             `• Fecha: ${date}\n` +
+             `• Fecha: ${formattedDate}\n` +
              `• Hora: ${time}\n` +
              `──────────────\n` +
              `• Notas: ${message}`;
